@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const [theme, setTheme] = useState('light');
@@ -17,23 +18,23 @@ const Navbar = () => {
         setTheme('light');
     }
 }
-console.log(theme)
+
   return (
     <div className="navbar bg-base-100 shadow-lg px-4 fixed z-10">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl font-bold gap-0 text-secondary">Byte<span className="text-primary font-bold">Blaze</span></a>
+        <Link to='/' className="btn btn-ghost text-xl font-bold gap-0 text-secondary">Byte<span className="text-primary font-bold">Blaze</span></Link>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
-          <li className="font-bold">
-            <a>Home</a>
-          </li>
-          <li className="font-bold text-primary">
-            <a>Blogs</a>
-          </li>
-          <li className="font-bold">
-            <a>Bookmarks</a>
-          </li>
+        <ul className="menu menu-horizontal px-1 gap-4  items-center mr-4">
+          <NavLink to='/' className={({isActive})=> isActive ? 'font-bold text-primary' : 'font-bold '}>
+            Home
+          </NavLink>
+          <NavLink to='/blogs' className={({isActive})=> isActive ? 'font-bold text-primary' : 'font-bold '}>
+            Blogs
+          </NavLink>
+          <NavLink to='bookmarks'  className={({isActive})=> isActive ? 'font-bold text-primary' : 'font-bold '} >
+            Bookmarks
+          </NavLink>
           
         </ul>
         <label className="toggle text-base-content">
