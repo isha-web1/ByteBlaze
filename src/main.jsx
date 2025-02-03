@@ -21,7 +21,8 @@ import BookMarks from './components/bookmarks/BookMarks.jsx'
        },
        {
            path : '/blogs',
-           element : <Blogs/>
+           element : <Blogs/>,
+           loader: () => fetch('https://dev.to/api/articles?per_page=20&top=7'),
        },
        {
         path : '/bookmarks',

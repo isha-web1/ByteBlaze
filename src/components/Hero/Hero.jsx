@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero bg-base-200 min-h-screen -mt-18">
       <div className="hero-content text-center">
         <div className="max-w-md">
         <h1 className='text-5xl font-bold'>
@@ -17,8 +17,8 @@ const Hero = () => {
             the curious minds eager to understand it
           </p>
           <div className="flex justify-center gap-4">
-          <button className="bg-cyan-500 shadow-lg shadow-cyan-500/50 ... p-3 rounded-sm">Get Started</button>
-          <button className="bg-fuchsia-500 shadow-lg shadow-fuchsia-500/50 ... p-3 rounded-sm">Get Started</button>
+          <Link to='/blogs' className="bg-cyan-500 shadow-lg shadow-cyan-500/50 ... p-3 rounded-sm">Read Blogs</Link>
+          <Link to='bookmarks' className="bg-fuchsia-500 shadow-lg shadow-fuchsia-500/50 ... p-3 rounded-sm">Bookmarks</Link>
           </div>
         </div>
       </div>
