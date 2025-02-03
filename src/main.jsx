@@ -8,6 +8,9 @@ import Root from './components/layout/Root.jsx'
 import Home from './components/Home/Home.jsx'
 import Blogs from './components/Blogs/Blogs.jsx'
 import BookMarks from './components/bookmarks/BookMarks.jsx'
+import BlogDetails from './components/blogDetails/BlogDetails.jsx'
+import Content from './components/Content/Content.jsx'
+import Author from './components/Author/Author.jsx'
 
 
  const router = createBrowserRouter([
@@ -23,6 +26,26 @@ import BookMarks from './components/bookmarks/BookMarks.jsx'
            path : '/blogs',
            element : <Blogs/>,
            loader: () => fetch('https://dev.to/api/articles?per_page=20&top=7'),
+       },
+       {
+           path : '/blog/:id',
+           element : <BlogDetails/>,
+           loader: ({ params }) =>
+            fetch(`https://dev.to/api/articles/${params?.id}`),
+           children: [
+            {
+              index: true,
+              element: <Content />,
+              loader: ({ params }) =>
+                fetch(`https://dev.to/api/articles/${params?.id}`),
+            },
+            {
+              path: 'author',
+              element: <Author />,
+              loader: ({ params }) =>
+                fetch(`https://dev.to/api/articles/${params?.id}`),
+            },
+          ],
        },
        {
         path : '/bookmarks',
